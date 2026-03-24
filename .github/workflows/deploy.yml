@@ -23,3 +23,7 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
+
+      # Ye step 'Build and Push' ke barabar hona chahiye, uske andar nahi
+      - name: Trigger Render Deploy
+        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
